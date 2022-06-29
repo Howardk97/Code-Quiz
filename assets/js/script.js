@@ -438,6 +438,7 @@ function submitBtn() {
     window.location.href="finalscores.html";
 }
 
+// Triggers functions when buttons are clicked
 startButton.addEventListener("click", strtBtn)
 q1Option1.addEventListener("click", quesOne)
 q1Option2.addEventListener("click", quesOne)
