@@ -13,11 +13,13 @@ userScoreContainer.textContent = currentInitials + "-" + finalScore;
 // Set variable to hold to container for user initials
 var userInitialsContainer = document.getElementById("user-initials");
 
-// Set a variable to the go back button
+// Set variables to the go back and clear scores buttons
 var goBack = document.getElementById("go-back");
-
-// Set a variable to the clear scores button
 var clearScores = document.getElementById("clear-scores");
+
+// Set styles for buttons
+goBack.setAttribute("style", "background-color: #100767; color: white; border-radius: 5px; font-size: large;");
+clearScores.setAttribute("style", "background-color: #100767; color: white; border-radius: 5px; font-size: large;");
 
 // Create a function that when generated will go back to the original html
 function backToPage() {
