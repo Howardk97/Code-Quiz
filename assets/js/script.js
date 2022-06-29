@@ -158,7 +158,9 @@ function quesTwo(event) {
 
         currentScore = currentScore + 25;
 
-        localStorage.setItem("quesOneScore", currentScore);
+        localStorage.setItem("currentScore", currentScore);
+
+        console.log(currentScore);
 
     } else if (event.target.textContent === q1Option4.textContent) {
         checkAnswer.textContent = "Wrong!";
@@ -204,7 +206,9 @@ function quesThree(event) {
 
         currentScore = currentScore + 25;
 
-        localStorage.setItem("quesTwoScore", currentScore);
+        console.log(currentScore);
+
+        localStorage.setItem("currentScore", currentScore);
 
     } else if (event.target.textContent === q2Option2.textContent) {
         checkAnswer.textContent = "Wrong!";
@@ -278,7 +282,9 @@ function quesFour (event) {
 
         currentScore = currentScore + 25;
 
-        localStorage.setItem("quesThreeScore", currentScore);
+        localStorage.setItem("currentScore", currentScore);
+
+        console.log(currentScore);
 
     } else if (event.target.textContent === q3Option4.textContent) {
         checkAnswer.textContent = "Wrong!";
@@ -288,6 +294,7 @@ function quesFour (event) {
         timeLeft = timeLeft - 10;
     }    
 }
+
 var score = document.createElement("p");
 var initialsContainer = document.createElement("div");
 var initialsLabel = document.createElement("span");
@@ -314,30 +321,38 @@ function scorePage(event) {
     submitButton.setAttribute("style", "background-color: #100767; color: white; border-radius: 5px; font-size: large; width: 20%;");
     // console.log(startDescription);
 
-    score.textContent = "Score: " + currentScore;
-    initialsLabel.textContent = "Initials: "
+
     // submitButton.setAttribute("style", "display: flex; align-items: center; width: 5%;");
 
     if (event.target.textContent === q4Option2.textContent) {
         currentScore = currentScore + 25;
 
-        localStorage.setItem("quesFourScore", currentScore);
+        localStorage.setItem("currentScore", currentScore);
 
-    } 
+        console.log(currentScore);
+
+    } else {
+        localStorage.setItem("currentScore", currentScore);
+
+        console.log(currentScore);
+    }
+
+    score.textContent = "Score: " + currentScore;
+    initialsLabel.textContent = "Initials: "
 }
 
 var finalScore = localStorage.getItem("quesFourScore");
-var endScore = (finalScore).toString();
-// console.log((finalScore).toString());
+// var endScore = (finalScore).toString();
+// console.log(finalScore);
 
 // var userScore = finalscores.getElementById("user-score");
 // console.log(userScore);
 
-// function submitBtn() {
-//     window.location.href="finalscores.html";
+function submitBtn() {
+    window.location.href="finalscores.html";
 
-//     userScore.textContent = endScore;
-// }
+    userScore.textContent = endScore;
+}
 
 startButton.addEventListener("click", strtBtn)
 q1Option1.addEventListener("click", quesOne)
@@ -356,5 +371,5 @@ q4Option1.addEventListener("click", quesFour)
 q4Option2.addEventListener("click", quesFour)
 q4Option3.addEventListener("click", quesFour)
 q4Option4.addEventListener("click", quesFour)
-// submitButton.addEventListener("click", submitBtn)
+submitButton.addEventListener("click", submitBtn)
 
