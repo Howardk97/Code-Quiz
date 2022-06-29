@@ -4,7 +4,7 @@ console.log(startButton);
 var startTitle = document.getElementById("start-title");
 var startDescription = document.getElementById("start-description");
 var response = document.getElementById("disp");
-console.log(startTitle.textContent);
+// console.log(startTitle.textContent);
 
 // console.log(startBoxHeader);
 //  var quesOne = "What is a comment?";
@@ -25,11 +25,6 @@ var q4Option2 = document.createElement("button");
 var q4Option3 = document.createElement("button");
 var q4Option4 = document.createElement("button");
 
-localStorage.setItem("Ques1Opt1", "Wrong!");
-localStorage.setItem("Ques1Opt2", "Wrong!");
-localStorage.setItem("Ques1Opt3", "Correct!");
-localStorage.setItem("Ques1Opt4", "Wrong!");
-
 var checkAnswer = document.createElement("h1");
 response.appendChild(checkAnswer);
 
@@ -39,7 +34,9 @@ function strtBtn(event) {
     clock();
 }
 
-var timeLeft = 5;
+var timeLeft = 60;
+
+var timer = document.getElementById("timer");
 
 function clock() {
     setInterval(function() {
@@ -55,6 +52,8 @@ function clock() {
         }
     }, 1000); 
 }
+
+var currentScore = 0;
 
 function quesOne(event) {
     startButton.style = "display: none;"
@@ -142,6 +141,10 @@ function quesTwo(event) {
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
 
+        currentScore = currentScore + 25;
+
+        localStorage.setItem("quesOneScore", currentScore);
+
     } else if (event.target.textContent === q1Option4.textContent) {
         checkAnswer.textContent = "Wrong!";
 
@@ -183,6 +186,10 @@ function quesThree(event) {
         checkAnswer.textContent = "Correct!"
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+        currentScore = currentScore + 25;
+
+        localStorage.setItem("quesTwoScore", currentScore);
 
     } else if (event.target.textContent === q2Option2.textContent) {
         checkAnswer.textContent = "Wrong!";
@@ -250,6 +257,10 @@ function quesFour (event) {
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
 
+        currentScore = currentScore + 25;
+
+        localStorage.setItem("quesThreeScore", currentScore);
+
     } else if (event.target.textContent === q3Option4.textContent) {
         checkAnswer.textContent = "Wrong!";
 
@@ -269,7 +280,7 @@ function scorePage(event) {
     startTitle.textContent = "All done!";
     startDescription.textContent = "";
     checkAnswer.textContent = "";
-    quizTimer.textContent = "";
+    quizTimer.textContent = "Timer: 0 seconds left.";
 
     startDescription.appendChild(score);
     startDescription.appendChild(initialsContainer);
@@ -285,13 +296,45 @@ function scorePage(event) {
     score.textContent = "Score: ";
     initialsLabel.textContent = "Initials: "
     // submitButton.setAttribute("style", "display: flex; align-items: center; width: 5%;");
+
+    if (event.target.textContent === q4Option1.textContent) {
+        checkAnswer.textContent = "Wrong!";
+
+        checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+    } else if (event.target.textContent === q4Option2.textContent) {
+        checkAnswer.textContent = "Correct!";
+
+        checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+        currentScore = currentScore + 25;
+
+        localStorage.setItem("quesFourScore", currentScore);
+
+    } else if (event.target.textContent === q4Option3.textContent) {
+        checkAnswer.textContent = "Wrong!";
+
+        checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+    } else if (event.target.textContent === q4Option4.textContent) {
+        checkAnswer.textContent = "Wrong!";
+
+        checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+    }
 }
 
-// function responseOne(event) {
-//     // if (event.target.textContent === "") {
-//     //     startButton.textContent = "Wrong!";
-//     // }
-// }
+var finalScore = localStorage.getItem("quesFourScore");
+var endScore = (finalScore).toString();
+// console.log((finalScore).toString());
+
+// var userScore = finalscores.getElementById("user-score");
+// console.log(userScore);
+
+function submitBtn() {
+    window.location.href="finalscores.html";
+
+    userScore.textContent = endScore;
+}
 startButton.addEventListener("click", strtBtn)
 q1Option1.addEventListener("click", quesOne)
 q1Option2.addEventListener("click", quesOne)
@@ -309,7 +352,7 @@ q4Option1.addEventListener("click", quesFour)
 q4Option2.addEventListener("click", quesFour)
 q4Option3.addEventListener("click", quesFour)
 q4Option4.addEventListener("click", quesFour)
-// submitButton.addEventListener("click", submitBtn)
+submitButton.addEventListener("click", submitBtn)
 // Remove all elements except for element that contains start button
 
 // Create a timer that will display in the header of the page that subtracts time when
