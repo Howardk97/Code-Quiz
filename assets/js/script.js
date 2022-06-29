@@ -36,6 +36,24 @@ response.appendChild(checkAnswer);
 function strtBtn(event) {
     //    document.getElementById("start-description").textContent = "hi";
     quesOne(event);
+    clock();
+}
+
+var timeLeft = 5;
+
+function clock() {
+    setInterval(function() {
+        if (timeLeft > 1) {
+            timeLeft--;
+            timer.textContent = timeLeft + ' seconds left.';
+        } else if (timeLeft === 1) {
+            timeLeft--;
+            timer.textContent = timeLeft + ' second left.'
+        } else {
+            timer.textContent = 'Times up!'
+            scorePage();
+        }
+    }, 1000); 
 }
 
 function quesOne(event) {
@@ -110,10 +128,14 @@ function quesTwo(event) {
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
 
+        timeLeft = timeLeft - 10;
+
     } else if (event.target.textContent === q1Option2.textContent) {
         checkAnswer.textContent = "Wrong!";
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+        timeLeft = timeLeft - 10;
 
     } else if (event.target.textContent === q1Option3.textContent) {
         checkAnswer.textContent = "Correct!";
@@ -124,6 +146,8 @@ function quesTwo(event) {
         checkAnswer.textContent = "Wrong!";
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+        timeLeft = timeLeft - 10;
     }
 }
 
@@ -165,15 +189,21 @@ function quesThree(event) {
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
 
+        timeLeft = timeLeft - 10;
+
     } else if (event.target.textContent === q2Option3.textContent) {
         checkAnswer.textContent = "Wrong!";
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
 
+        timeLeft = timeLeft - 10;
+
     } else if (event.target.textContent === q2Option4.textContent) {
         checkAnswer.textContent = "Wrong!";
 
         checkAnswer.setAttribute("style", "display: flex; color: grey; border-top: solid;");
+
+        timeLeft = timeLeft - 10;
     }
 }
 
@@ -233,10 +263,13 @@ var initialsPromp = document.createElement("textarea");
 var submitSection = document.createElement("div");
 var submitButton = document.createElement("button");
 
+var quizTimer = document.getElementById("time");
+
 function scorePage(event) {
     startTitle.textContent = "All done!";
     startDescription.textContent = "";
     checkAnswer.textContent = "";
+    quizTimer.textContent = "";
 
     startDescription.appendChild(score);
     startDescription.appendChild(initialsContainer);
