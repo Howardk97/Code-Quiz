@@ -9,31 +9,31 @@ header {
     justify-content: space-between;
 }
 
+/* Put a margin around the start button */
 button {
     margin: 1%;
 }
 
+/* Use flex to position the main content on the webpage in the horizontal center */
 .main-container {
     display: flex;
     align-items: center; 
     justify-content: center;
-    /* background-color: blue; */
     height: 30em;
 }
 
+/* Shorten the width for the original description and the height */
 .start-container {
-    /* background-color: pink; */
     width: 25em;
     height: 25em;
 }
 
+/* Centers the text in the original content and the answer options on the page */
 #start-page {
-    /* width: 25em; */
-    /* height: 25em; */
     text-align: center;
-    /* position: absolute; */
 }
 
+/* Styles the original description text and space around text */
 #start-description {
     margin: 0% auto;
     font-size: 1.25em;
@@ -43,6 +43,7 @@ button {
     width: 110%;
 }
 
+/* Styles the start button on the original page */
 #start-button {
    margin: 2em;
    width: 5em;
@@ -53,20 +54,8 @@ button {
    border-radius: 25%;
 }
 
-#questions {
-    background-color: red;
-}
-
+/* Styles the heading for the start page and questions on next pages */
 #start-title {
     font-size: 250%;
     margin: 0%;
 }
-
-/* Center all child elements in section */
-
-
-/* Style buttons to have background of blue, curved corners, and text of white */
-
-/* Make questions and labels bold */
-
-/* Move timer element to the right of the header */
