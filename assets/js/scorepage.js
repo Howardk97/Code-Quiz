@@ -28,9 +28,10 @@ function backToPage() {
 
 // Create a function that when generated will clear the list
 function clearList() {
-
+    userScoreContainer.textContent = "";
 }
 
-// Attach the button to the function
+// Attach buttons to the functions
 goBack.addEventListener("click", backToPage);
+clearScores.addEventListener("click", clearList);
 
