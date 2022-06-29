@@ -376,7 +376,7 @@ function quesFour (event) {
 var score = document.createElement("p");
 var initialsContainer = document.createElement("div");
 var initialsLabel = document.createElement("span");
-var initialsPromp = document.createElement("textarea");
+var initialsPrompt = document.createElement("textarea");
 var submitSection = document.createElement("div");
 var submitButton = document.createElement("button");
 
@@ -399,7 +399,7 @@ function scorePage(event) {
     // attach created elements on html
     startDescription.appendChild(initialsContainer);
     initialsContainer.appendChild(initialsLabel);
-    initialsContainer.appendChild(initialsPromp);
+    initialsContainer.appendChild(initialsPrompt);
     startDescription.appendChild(submitSection);
     submitSection.appendChild(submitButton);
 
@@ -433,9 +433,12 @@ function scorePage(event) {
 // var finalScore = localStorage.getItem("quesFourScore");
 
 // function that is generated when submit button is clicked
-function submitBtn() {
+function submitBtn(event) {
     // attach java to other html
     window.location.href="finalscores.html";
+
+    // Save user initials in local storage
+    localStorage.setItem("userInitials", initialsPrompt.value);
 }
 
 // Triggers functions when buttons are clicked
