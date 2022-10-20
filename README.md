@@ -1,5 +1,5 @@
 # Code Quiz
-This is a quiz focused on JavaScript for beginner web developers. It is timed and the time gets deduced if questions are answered incorrectly. The page then calculates the users score on the quiz and displays it for them at the end.
+This is a quiz focused on JavaScript for beginner web developers. It is timed and the time gets deducted if questions are answered incorrectly. The page then calculates the users score on the quiz and displays it for them at the end.
 
 
 ## Usage
